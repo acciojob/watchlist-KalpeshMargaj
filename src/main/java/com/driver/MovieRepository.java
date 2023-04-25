@@ -54,15 +54,20 @@ public class MovieRepository {
     }
 
     public List<String> getAllMovies() {
-        List<String> ans = new ArrayList<>();
-        for(String movieName:movieDb.keySet())
-        {
-            ans.add(movieName);
-        }
-        return ans;
+        return new ArrayList<>(movieDb.keySet());
     }
 
     public void deleteDirectorByName(String directorName) {
+        if(MovieDirectorPairDb.containsKey(directorName))
+        {
+            List<String> movies = MovieDirectorPairDb.get(directorName);
+            for(String movie : movies)
+            {
+                if(movieDb.containsKey(movie))
+                    movieDb.remove(movie);
+            }
+        }
+
         directorDb.remove(directorName);
         MovieDirectorPairDb.remove(directorName);
     }
