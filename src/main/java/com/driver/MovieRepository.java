@@ -80,6 +80,11 @@ public class MovieRepository {
 
         for(String name:MovieDirectorPairDb.keySet())
         {
+            List<String> l= MovieDirectorPairDb.get(name);
+            for(String movie:l)
+            {
+                movieDb.remove(movie);
+            }
             MovieDirectorPairDb.remove(name);
         }
     }
