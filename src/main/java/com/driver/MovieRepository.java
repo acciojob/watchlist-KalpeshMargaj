@@ -13,17 +13,18 @@ public class MovieRepository {
     HashMap<String, List<String>> MovieDirectorPairDb = new HashMap<>();
 
     public void addMovie(Movie movie) {
-        if(!movieDb.containsKey(movie.getName()))
-        {
-            movieDb.put(movie.getName(),movie);
-        }
+//        if(!movieDb.containsKey(movie.getName()))
+//        {
+//        }
+        movieDb.put(movie.getName(),movie);
+
     }
 
     public void addDirector(Director director) {
-        if(!directorDb.containsKey(director.getName()))
-        {
+//        if(!directorDb.containsKey(director.getName()))
+//        {
+//        }
             directorDb.put(director.getName(),director);
-        }
     }
 
     public void addMovieDirectorPair(String movieName, String directorName) {
